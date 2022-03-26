@@ -50,7 +50,7 @@ profile-*
 
 # vscode
 .vscode
-*code-workspace
+# *code-workspace
 
 # clinic
 profile*
@@ -63,3 +63,9 @@ test/types/index.js
 
 # compiled app
 dist
+
+
+.yarn
+
+
+

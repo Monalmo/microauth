@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			// "titleBar.activeForeground": "#8BB8A8",
+			"activityBar.foreground": "#000",
+			// "statusBar.foreground": "#000",
+			// "titleBar.activeBackground": "#000",
+			"activityBar.background": "#8BB9C4"
+			// "statusBar.background": "#8BB8A8"
+		},
+		"workbench.colorTheme": "GitHub Dark",
+		"window.title": "MicroServicios ${separator}${activeEditorShort}"
+	}
+}
