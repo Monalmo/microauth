@@ -14,6 +14,19 @@
 			// "statusBar.background": "#8BB8A8"
 		},
 		"workbench.colorTheme": "GitHub Dark",
-		"window.title": "MicroServicios ${separator}${activeEditorShort}"
+		"window.title": "MicroServicios ${separator}${activeEditorShort}",
+
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true
+		},
+		"[json]": {
+			"editor.defaultFormatter": "vscode.json-language-features"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		}
 	}
 }
