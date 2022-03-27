@@ -11,19 +11,29 @@
     "start": "npm run build:ts && fastify start -l info dist/server.js",
     "build:ts": "tsc",
     "dev": "PORT=3080 tsc && concurrently -k -p \"[{name}]\" -n \"tsc,app\" -c \"yellow.bold,black.dim\" \"tsc -w\" 'fastify start --ignore-watch=.ts$ -w -l info -P dist/server.js'",
-    "lint": "eslint --ext \".js,.ts,.vue\" --ignore-path .eslintignore ."
+    "lint": "eslint --ext \".js,.ts,.vue\" --ignore-path .eslintignore .",
+    "lintfix": "yarn lint --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --cache",
+    "*.**": "prettier --check --ignore-unknown"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "fastify": "^3.0.0",
     "fastify-autoload": "^3.10.0",
     "fastify-cli": "^2.15.0",
     "fastify-plugin": "^3.0.0",
     "fastify-routes": "^3.1.0",
     "fastify-sensible": "^3.1.2",
-    "fastify-xml-body-parser": "^2.1.0"
+    "fastify-xml-body-parser": "^2.1.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
