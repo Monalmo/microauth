@@ -1,5 +1,4 @@
 import chalk from 'chalk'
-import enArcoiris from 'chalk-rainbow'
 import { fastify } from 'fastify'
 
 import fastifyXmlBodyParser from 'fastify-xml-body-parser'
@@ -25,8 +24,6 @@ const start = async () => {
 	try {
 		server.register(fastifyRoutes)
 		server.register(fastifyXmlBodyParser)
-
-		console.log(enArcoiris('Holandaaaa!!'))
 
 		server.addHook('onRequest', function (request, reply, done) {
 			console.log(chalk.cyan('Request!!'), request.url)

@@ -7,14 +7,15 @@
 	"settings": {
 		"workbench.colorCustomizations": {
 			// "titleBar.activeForeground": "#8BB8A8",
-			"activityBar.foreground": "#000",
+			"activityBar.foreground": "#fff",
 			// "statusBar.foreground": "#000",
-			// "titleBar.activeBackground": "#000",
-			"activityBar.background": "#8BB9C4"
-			// "statusBar.background": "#8BB8A8"
+			"titleBar.activeBackground": "#141414",
+			"activityBar.background": "#0f6078",
+			"statusBar.background": "#141414",
+			"sideBar.background": "#041a20",
+			"editor.background": "#161616"
 		},
-		"workbench.colorTheme": "GitHub Dark",
-		"window.title": "MicroServicios ${separator}${activeEditorShort}",
+		"window.title": "ePerk BACK ${separator}${activeEditorShort}",
 
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true

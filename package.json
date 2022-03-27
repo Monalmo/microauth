@@ -1,7 +1,7 @@
 {
-  "name": "microservicios",
+  "name": "coreback",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with Fastify-CLI.",
+  "description": "Este proyecto fue engendrado con fastify cli y luego clonado del repo de microservicios",
   "main": "server.ts",
   "directories": {
     "test": "test"
@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk-rainbow": "^1.0.0",
     "fastify": "^3.0.0",
     "fastify-autoload": "^3.10.0",
     "fastify-cli": "^2.15.0",
