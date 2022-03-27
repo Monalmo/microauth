@@ -1,8 +1,17 @@
 {
-  "extends": "fastify-tsconfig",
-  "compilerOptions": {
-    "outDir": "dist",
-    "sourceMap": true
-  },
-  "include": ["src/**/*.ts"]
+	"extends": "fastify-tsconfig",
+	"compilerOptions": {
+		"outDir": "dist",
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"noImplicitAny": false,
+		"module": "CommonJS",
+		"lib": ["ES2020"],
+		"paths": {
+			"@lib/*": ["./src/lib/*"]
+		}
+	},
+	"include": ["src/**/*.ts"]
 }

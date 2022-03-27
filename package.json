@@ -2,26 +2,29 @@
   "name": "microservicios",
   "version": "1.0.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
-  "main": "app.ts",
+  "main": "server.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts test/**/*.test.ts",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "start": "npm run build:ts && fastify start -l info dist/server.js",
     "build:ts": "tsc",
-    "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js\"",
+    "dev": "PORT=3080 tsc && concurrently -k -p \"[{name}]\" -n \"tsc,app\" -c \"yellow.bold,black.dim\" \"tsc -w\" 'fastify start --ignore-watch=.ts$ -w -l info -P dist/server.js'",
     "lint": "eslint --ext \".js,.ts,.vue\" --ignore-path .eslintignore ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk-rainbow": "^1.0.0",
     "fastify": "^3.0.0",
     "fastify-autoload": "^3.10.0",
     "fastify-cli": "^2.15.0",
     "fastify-plugin": "^3.0.0",
-    "fastify-sensible": "^3.1.2"
+    "fastify-routes": "^3.1.0",
+    "fastify-sensible": "^3.1.2",
+    "fastify-xml-body-parser": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
