@@ -7,13 +7,16 @@
 	"settings": {
 		"workbench.colorCustomizations": {
 			// "titleBar.activeForeground": "#8BB8A8",
-			"activityBar.foreground": "#fff",
+			"activityBar.foreground": "#8BE8CB",
+			"sideBar.foreground": "#fff",
 			// "statusBar.foreground": "#000",
+
+			"activityBar.background": "#1B8866",
+			"sideBar.background": "#0A3326",
+
 			"titleBar.activeBackground": "#141414",
-			"activityBar.background": "#0f6078",
+			"editor.background": "#161616",
 			"statusBar.background": "#141414",
-			"sideBar.background": "#041a20",
-			"editor.background": "#161616"
 		},
 		"window.title": "ePerk BACK ${separator}${activeEditorShort}",
 
