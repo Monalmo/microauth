@@ -8,13 +8,14 @@
 	},
 	"extends": [
 		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:prettier/recommended"
+		"plugin:@typescript-eslint/recommended"
+		// "plugin:prettier/recommended"
 	],
 	"rules": {
 		"indent": ["error", "tab", { "SwitchCase": 1 }],
-		// 'quote-props': ["error", "as-needed"],
+		"quote-props": ["error", "as-needed"],
 		"arrow-parens": ["error", "as-needed"],
+		// "arrow-parens": ["error", "always"],
 		"no-tabs": "off",
 		"curly": ["error", "multi-line"],
 		"no-console": "off",

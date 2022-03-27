@@ -16,7 +16,7 @@
 
 			"titleBar.activeBackground": "#141414",
 			"editor.background": "#161616",
-			"statusBar.background": "#141414",
+			"statusBar.background": "#141414"
 		},
 		"window.title": "ePerk BACK ${separator}${activeEditorShort}",
 

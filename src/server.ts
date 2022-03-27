@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import { fastify } from 'fastify'
+// import { reduce } from 'lodash'
 
 import fastifyXmlBodyParser from 'fastify-xml-body-parser'
 import fastifyRoutes from 'fastify-routes'
@@ -15,10 +16,10 @@ const start = async () => {
 				target: 'pino-pretty',
 				options: {
 					colorize: true,
-					translateTime: 'mmm-d HH:MM:ss,l o',
-				},
-			},
-		}),
+					translateTime: 'mmm-d HH:MM:ss,l o'
+				}
+			}
+		})
 	})
 
 	try {
@@ -54,13 +55,35 @@ const start = async () => {
 
 		await server.listen(port, ip)
 
-		console.log(chalk.magenta('Rutas'), server.routes)
-		console.log('Server started successfully')
+		interface Ruta {
+			path: string
+			method: string
+			url: string
+		}
+		const rutasComoTabla: Ruta[] = []
+
+		for (const [path, rutas] of server.routes) {
+			for (const ruta of rutas) {
+				rutasComoTabla.push({
+					path,
+					method: ruta.method.toString(),
+					url: ruta.url
+				})
+			}
+		}
+		// console.log(chalk.magenta('Rutas'), server.routes)
+		console.log(
+			chalk.cyan(`\nServer iniciado en `),
+			chalk.cyanBright.bold(`${ip}:${port}\n`)
+		)
+		console.table(rutasComoTabla)
 	} catch (err) {
 		server.log.error(err)
 		process.exit(1)
 	}
 }
+
+start()
 
 export default start
 export { start }
