@@ -35,7 +35,8 @@
 		"fastify-sensible": "^3.1.2",
 		"fastify-xml-body-parser": "^2.1.0",
 		"husky": "^7.0.4",
-		"lint-staged": "^12.3.7"
+		"lint-staged": "^12.3.7",
+		"mongodb": "^4.4.1"
 	},
 	"devDependencies": {
 		"@types/node": "^17.0.8",
