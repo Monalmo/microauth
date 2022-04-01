@@ -1,2 +1,12 @@
-### Root
-GET 
+
+# @dominio = https://api.crishadad.cl
+# @dominio = https://api.eperk.cl
+@dominio = http://localhost:3080
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dJRCI6IjYxY2QzMTc4NDkzMzFlMGFlYWVjOTYyZSIsInVzZXJJRCI6IjYxZGNiOTQ4ODQ5NmJiZjQxODU0MDkxYiIsImlzQWRtaW5FcGVyayI6dHJ1ZSwiZW1haWwiOiJjcmlzdGlhbi5oYWRhZC5nQGdtYWlsLmNvbSIsImV4cCI6MTY0ODE4MTM4MywiaWF0IjoxNjQ4MTc3NzgzfQ.W9G3PkClKEIKG7aKAXiNOI0RcWlA9LpFAE9_vXx__HQEcA5VSpJ0Tf5_e5N2gDOKvKFrWErMqYYUp1VUiVzi9selSjw23L6bEZbRcFAUSOusmB5Zwxjp053KzpUjL6DPmPkwh0hw3Qev6gxlRtidZZcxpHwI-P8T5_A6qYIg4j8
+
+
+
+GET {{dominio}}/usuarios
+Content-Type: application/json
+
+

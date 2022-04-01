@@ -26,14 +26,14 @@ export interface representanteLegal {
 }
 
 export interface onboarding {
-	pais: string
-	email: string
-	contrasena: string
-	datosPersonales: boolean
+	pais?: string
+	email?: string
+	contrasena?: string
+	datosPersonales?: boolean
 	// hacer interfaces
-	datosOrg: datosOrg
-	ubicacionOrg: true
-	representante: representanteLegal
+	datosOrg?: datosOrg
+	ubicacionOrg?: true
+	representante?: representanteLegal
 }
 
 export interface orgCreada {
@@ -52,12 +52,23 @@ export interface perfilDeUsuarioModel {
 	creaciones?: orgCreada[]
 }
 
+export interface usuarioLoginModel {
+	_id: ObjectId
+	email: string
+	createdBy: ObjectId | string
+	onboarding?: onboarding
+	creacion?: Date
+	recuperacionDeContraseña?: boolean | object
+	password?: string
+	emailConfirmed?: boolean
+}
+
 // conexion a bbdd
 async function getCollection(col: string | undefined) {
 	if (col === 'login') {
 		const db = await DB('ePerkLogin')
 
-		return db.collection<perfilDeUsuarioModel>('userLogins')
+		return db.collection<usuarioLoginModel>('userLogins')
 	} else {
 		const db = await DB(nombreDB)
 
@@ -66,14 +77,29 @@ async function getCollection(col: string | undefined) {
 }
 
 const usuariosService = {
-	async usuarioXusuarioID(usuarioID) {
-		try {
-			const db = await getCollection()
-			const usuario = await db.findOne({ _id: usuarioID })
+	login: {
+		async usuarioLoginXEmail(email: string) {
+			try {
+				const db = await getCollection('login')
+				const usuario = await db.findOne({ email: email })
 
-			return usuario
-		} catch (error) {
-			throw { error }
+				return usuario
+			} catch (error) {
+				throw { error }
+			}
+		}
+	},
+
+	perfiles: {
+		async usuarioXusuarioID(usuarioID: ObjectId) {
+			try {
+				const db = await getCollection()
+				const usuario = await db.findOne({ _id: usuarioID })
+
+				return usuario
+			} catch (error) {
+				throw { error }
+			}
 		}
 	}
 }
