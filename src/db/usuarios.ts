@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import { ObjectId } from 'mongodb'
 import DB from '../db'
 
@@ -85,7 +86,7 @@ const usuariosService = {
 
 				return usuario
 			} catch (error) {
-				throw { error }
+				throw error
 			}
 		}
 	},
@@ -98,7 +99,7 @@ const usuariosService = {
 
 				return usuario
 			} catch (error) {
-				throw { error }
+				throw error
 			}
 		}
 	}
