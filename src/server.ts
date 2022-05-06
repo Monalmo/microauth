@@ -3,7 +3,7 @@ import { fastify } from 'fastify'
 // import { reduce } from 'lodash'
 
 import fastifyXmlBodyParser from 'fastify-xml-body-parser'
-import fastifyRoutes from 'fastify-routes'
+import fastifyRoutes from '@fastify/routes'
 import pino from 'pino'
 import appService from './app'
 

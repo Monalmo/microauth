@@ -27,11 +27,11 @@
 	"dependencies": {
 		"@commitlint/cli": "^16.2.3",
 		"@commitlint/config-conventional": "^16.2.1",
+		"@fastify/routes": "^4.0.0",
 		"fastify": "^3.0.0",
 		"fastify-autoload": "^3.10.0",
 		"fastify-cli": "^2.15.0",
 		"fastify-plugin": "^3.0.0",
-		"fastify-routes": "^3.1.0",
 		"fastify-sensible": "^3.1.2",
 		"fastify-xml-body-parser": "^2.1.0",
 		"husky": "^7.0.4",
