@@ -4,8 +4,12 @@
 
 
 ### obtiene usuarios
-GET {{dominio}}/usuarios
+POST {{dominio}}/usuarios
 Content-Type: application/json
+
+{
+	"usuario": "ihdbfibibdwo88696"
+}
 
 
 
