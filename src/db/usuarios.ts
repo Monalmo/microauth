@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-catch */
 import { ObjectId } from 'mongodb'
-import DB from '../db'
+import DB from '@/lib/db'
 
 const nombreDB = 'eperk'
 
@@ -94,9 +94,10 @@ const usuariosService = {
 	perfiles: {
 		async usuarioXusuarioID(usuarioID: string) {
 			try {
-				const db = await DB('eperk')
-				console.log('DB', DB)
-				const usuario = await db.collection('perfiles').findOne({ usuarioID: usuarioID })
+				console.log('buscar', usuarioID)
+
+				const db = await DB('eperk-test')
+				const usuario = await db.collection('perfiles').findOne({ usuarioID: new ObjectId(usuarioID) })
 				console.log(usuario)
 				return usuario
 			} catch (error) {

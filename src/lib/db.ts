@@ -13,7 +13,7 @@ const configs = {
 	},
 	dev: {
 		dbName: 'Clases',
-		url: 'mongodb://localhost:27020'
+		url: 'mongodb://localhost:27019'
 	},
 	prod: {
 		dbName: 'Clases',
