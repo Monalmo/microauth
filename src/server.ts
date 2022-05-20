@@ -1,6 +1,8 @@
 import chalk from 'chalk'
 import { fastify } from 'fastify'
 import fastifyRoutes from '@fastify/routes'
+import fastifyCors from '@fastify/cors'
+import fastifyHelmet from '@fastify/helmet'
 
 import fastifyXmlBodyParser from 'fastify-xml-body-parser'
 // import fastifyRoutes from 'fastify-routes'
@@ -23,6 +25,26 @@ const start = async () => {
 	})
 
 	try {
+		server.register(fastifyHelmet, { global: true })
+		server.register(fastifyCors, {
+			origin: (origin, cb) => {
+				// const hostname = new URL(origin).hostname
+				console.log('origin: ', chalk.cyan(origin))
+				if(origin){
+					const hostname = new URL(origin).hostname
+					console.log('origin: ', chalk.cyan(hostname))
+					//  Request from localhost will pass
+					cb(null, true)
+					return
+				}
+				console.log('Sin Origin: ', chalk.cyan(origin))
+				cb(null, true)
+				return
+				// Generate an error on other origins, disabling access
+				// cb(new Error('No permitido'), true)
+
+			}
+		})
 		server.register(fastifyRoutes)
 		server.register(fastifyXmlBodyParser)
 
