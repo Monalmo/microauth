@@ -1,9 +1,9 @@
 import chalk from 'chalk'
 import { fastify } from 'fastify'
-// import { reduce } from 'lodash'
+import fastifyRoutes from '@fastify/routes'
 
 import fastifyXmlBodyParser from 'fastify-xml-body-parser'
-import fastifyRoutes from '@fastify/routes'
+// import fastifyRoutes from 'fastify-routes'
 import pino from 'pino'
 import appService from './app'
 
