@@ -2,8 +2,6 @@
 import { ObjectID } from 'bson'
 import DB from '@lib/db'
 
-
-
 export interface direccionCompleta {
 	region: string
 	comuna: string
@@ -53,11 +51,11 @@ export interface habilitada {
 	fecha: Date
 }
 export interface solicitud {
-		montoCLP: number
-		tipoCambio: number
-		montoUSD: number
-		realizadaPor: ObjectID | string
-		fecha: Date
+	montoCLP: number
+	tipoCambio: number
+	montoUSD: number
+	realizadaPor: ObjectID | string
+	fecha: Date
 }
 export interface recargasPendiente {
 	[idRecarga: string]: solicitud
@@ -84,7 +82,7 @@ export interface organizacion {
 }
 
 export const organizacionesService = {
-	async obtener (orgID: ObjectID) {
+	async obtener(orgID: ObjectID) {
 		const fx = 'obtener organizacion'
 		console.log(fx, orgID)
 
@@ -94,7 +92,7 @@ export const organizacionesService = {
 			console.log(fx, organizacion)
 			return organizacion
 		} catch (error) {
-			console.log('error obteniendo organizacion ', {error})
+			console.log('error obteniendo organizacion ', { error })
 			throw error
 		}
 	}

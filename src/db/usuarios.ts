@@ -62,14 +62,12 @@ export interface usuarioLoginModel {
 	emailConfirmed?: boolean
 }
 
-
 const usuariosService = {
 	login: {
 		// async usuarioLoginXEmail(email: string) {
 		// 	try {
 		// 		const db = await getCollection('login')
 		// 		const usuario = await db.findOne({ email: email })
-
 		// 		return usuario
 		// 	} catch (error) {
 		// 		throw error
