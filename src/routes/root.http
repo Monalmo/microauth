@@ -8,7 +8,7 @@ POST {{dominio}}/usuarios
 Content-Type: application/json
 
 {
-	"usuario": "ihdbfibibdwo88696"
+	"usuario": "623dde266f8eab66bc8fd1a8"
 }
 
 

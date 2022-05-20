@@ -65,7 +65,7 @@ export interface usuarioLoginModel {
 }
 
 // conexion a bbdd
-async function getCollection(col: string | undefined) {
+async function getCollection(col: string) {
 	if (col === 'login') {
 		const db = await DB('ePerkLogin')
 
@@ -92,11 +92,12 @@ const usuariosService = {
 	},
 
 	perfiles: {
-		async usuarioXusuarioID(usuarioID: ObjectId) {
+		async usuarioXusuarioID(usuarioID: string) {
 			try {
-				const db = await getCollection()
-				const usuario = await db.findOne({ _id: usuarioID })
-
+				const db = await DB('eperk')
+				console.log('DB', DB)
+				const usuario = await db.collection('perfiles').findOne({ usuarioID: usuarioID })
+				console.log(usuario)
 				return usuario
 			} catch (error) {
 				throw error
