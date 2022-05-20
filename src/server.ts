@@ -27,8 +27,8 @@ const start = async () => {
 		server.register(fastifyXmlBodyParser)
 
 		server.addHook('onRequest', function (request, reply, done) {
-			console.log(chalk.cyan('Request!!'), request.url)
-
+			console.log('SOLICITUD', chalk.cyan(request.method), chalk.yellow(request.url))
+			// if (request.method === 'POST' && )
 			// console.log(request);
 			return done()
 		})
@@ -47,12 +47,13 @@ const start = async () => {
 			this.log.error(error)
 			console.error(chalk.red('fastify Error'), error)
 			// Send error response
-			reply.status(409).send({ ok: false })
+			reply.status(400).send({ ok: 0, error: error.message })
 		})
 
 		const port = process.env.PORT || 3080
 		const ip = process.env.MODO === 'dev' ? '0.0.0.0' : '127.0.0.1'
 
+		console.log('Server iniciando en', chalk.cyan(`http://${ip}:${port}`))
 		await server.listen(port, ip)
 
 		interface Ruta {
@@ -72,10 +73,7 @@ const start = async () => {
 			}
 		}
 		// console.log(chalk.magenta('Rutas'), server.routes)
-		console.log(
-			chalk.cyan(`\nServer iniciado en `),
-			chalk.cyanBright.bold(`${ip}:${port}\n`)
-		)
+		console.log(chalk.cyan('Server iniciado en '), chalk.cyanBright.bold(`${ip}:${port}\n`))
 		console.table(rutasComoTabla)
 	} catch (err) {
 		server.log.error(err)
