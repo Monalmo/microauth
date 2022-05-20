@@ -11,6 +11,14 @@ Content-Type: application/json
 	"usuario": "623dde266f8eab66bc8fd1a8"
 }
 
+### activa servicio de Beneficios
+POST {{dominio}}/beneficios/activar
+Content-Type: application/json
+
+{
+	"activar": true
+}
+
 
 
 ### obtiene comprobantes

@@ -2,8 +2,6 @@
 import { ObjectId } from 'mongodb'
 import DB from '@/lib/db'
 
-const nombreDB = 'eperk'
-
 // primero se debn crear las interfaces que se utilizaran en las solicitudes
 export interface datosPersonales {
 	nombre: string
@@ -64,31 +62,19 @@ export interface usuarioLoginModel {
 	emailConfirmed?: boolean
 }
 
-// conexion a bbdd
-async function getCollection(col: string) {
-	if (col === 'login') {
-		const db = await DB('ePerkLogin')
-
-		return db.collection<usuarioLoginModel>('userLogins')
-	} else {
-		const db = await DB(nombreDB)
-
-		return db.collection<perfilDeUsuarioModel>('perfiles')
-	}
-}
 
 const usuariosService = {
 	login: {
-		async usuarioLoginXEmail(email: string) {
-			try {
-				const db = await getCollection('login')
-				const usuario = await db.findOne({ email: email })
+		// async usuarioLoginXEmail(email: string) {
+		// 	try {
+		// 		const db = await getCollection('login')
+		// 		const usuario = await db.findOne({ email: email })
 
-				return usuario
-			} catch (error) {
-				throw error
-			}
-		}
+		// 		return usuario
+		// 	} catch (error) {
+		// 		throw error
+		// 	}
+		// }
 	},
 
 	perfiles: {
