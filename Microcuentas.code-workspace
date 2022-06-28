@@ -7,19 +7,19 @@
 	"settings": {
 		"workbench.colorCustomizations": {
 			// "titleBar.activeForeground": "#8BB8A8",
-			"activityBar.foreground": "#8BE8CB",
-			"activityBar.activeBackground": "#0A3326",
+			"activityBar.foreground": "#8be8e8",
+			"activityBar.activeBackground": "#0a2933",
 			"sideBar.foreground": "#bbb",
 			// "statusBar.foreground": "#000",
 
-			"activityBar.background": "#051b14",
-			"sideBar.background": "#051b14",
+			"activityBar.background": "#05131b",
+			"sideBar.background": "#05141b",
 
 			"titleBar.activeBackground": "#141414",
 			"editor.background": "#161616",
 			"statusBar.background": "#141414"
 		},
-		"window.title": "ePerk BACK ${separator}${activeEditorShort}",
+		"window.title": "Cuentas Secom Digital ${separator}${activeEditorShort}",
 
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true
