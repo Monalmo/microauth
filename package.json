@@ -1,7 +1,7 @@
 {
 	"name": "coreback",
 	"version": "1.0.0",
-	"description": "Este proyecto fue engendrado con fastify cli y luego clonado del repo de microservicios",
+	"description": "Este proyecto fue engendrado con fastify cli, luego clonado del repo de microservicios y ahora utilizado para el servicio de cuentas de las plataformas digitales de Secom",
 	"main": "server.ts",
 	"directories": {
 		"test": "test"
@@ -45,8 +45,6 @@
 		"mongodb": "^4.2.2",
 		"nanoid": "^3.3.4",
 		"network-config": "^3.0.0",
-		"phone": "^3.1.17",
-		"rut.js": "^2.1.0",
 		"ts-node": "^10.7.0",
 		"validator": "^13.7.0"
 	},

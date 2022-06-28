@@ -30,7 +30,7 @@ const start = async () => {
 			origin: (origin, cb) => {
 				// const hostname = new URL(origin).hostname
 				console.log('origin: ', chalk.cyan(origin))
-				if(origin){
+				if (origin) {
 					const hostname = new URL(origin).hostname
 					console.log('origin: ', chalk.cyan(hostname))
 					//  Request from localhost will pass
@@ -42,7 +42,6 @@ const start = async () => {
 				return
 				// Generate an error on other origins, disabling access
 				// cb(new Error('No permitido'), true)
-
 			}
 		})
 		server.register(fastifyRoutes)
