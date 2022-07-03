@@ -7,19 +7,19 @@
 	"settings": {
 		"workbench.colorCustomizations": {
 			// "titleBar.activeForeground": "#8BB8A8",
-			"activityBar.foreground": "#8be8e8",
-			"activityBar.activeBackground": "#0a2933",
+			"activityBar.foreground": "#e8af8b",
+			"activityBar.activeBackground": "#332a0a",
 			"sideBar.foreground": "#bbb",
 			// "statusBar.foreground": "#000",
 
-			"activityBar.background": "#05131b",
-			"sideBar.background": "#05141b",
+			"activityBar.background": "#1b1005",
+			"sideBar.background": "#1b1305",
 
 			"titleBar.activeBackground": "#141414",
 			"editor.background": "#161616",
 			"statusBar.background": "#141414"
 		},
-		"window.title": "Cuentas Secom Digital ${separator}${activeEditorShort}",
+		"window.title": "Micro Auth ${separator}${activeEditorShort}",
 
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true
