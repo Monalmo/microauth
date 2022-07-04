@@ -1831,9 +1831,11 @@ __metadata:
     nanoid: ^3.3.4
     network-config: ^3.0.0
     node-network-manager: ^1.0.9
+    phone: ^3.1.22
     pino: ^7.6.1
     pino-pretty: ^7.3.0
     prettier: ^2.6.2
+    rut.js: ^2.1.0
     ts-node: ^10.7.0
     ts-node-dev: ^1.1.8
     tsc-alias: ^1.6.3
@@ -5033,6 +5035,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"phone@npm:^3.1.22":
+  version: 3.1.22
+  resolution: "phone@npm:3.1.22"
+  checksum: 4fc94ae289dee35ccb4c92521d430e814e2e499be63334f6e7c483d88a2b27c3b8e8e15f60f5fe09ab8fc66902334c72bf36e907f82f6ba8cd731548c75cb3bc
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
@@ -5533,6 +5542,13 @@ __metadata:
   dependencies:
     queue-microtask: ^1.2.2
   checksum: cb4f97ad25a75ebc11a8ef4e33bb962f8af8516bb2001082ceabd8902e15b98f4b84b4f8a9b222e5d57fc3bd1379c483886ed4619367a7680dad65316993021d
+  languageName: node
+  linkType: hard
+
+"rut.js@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "rut.js@npm:2.1.0"
+  checksum: 34695eb3af7aa23806c6c1902baac8ca13f2fbd4a301ea5c50af7180da57c7a5db953c6f76d000ccb21fa6b6fdcdbd6b846ddd70f21c01426d63d737e87ae7de
   languageName: node
   linkType: hard
 

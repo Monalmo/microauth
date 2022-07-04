@@ -4,11 +4,12 @@
 
 
 ### obtiene usuarios
-POST {{dominio}}/usuarios
+POST {{dominio}}/usuario
 Content-Type: application/json
 
 {
-	"usuario": "623dde266f8eab66bc8fd1a8"
+	"nombre": "Mico",
+	"email": "mico@dud.cl"
 }
 
 ### activa servicio de Beneficios
