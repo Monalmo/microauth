@@ -32,6 +32,12 @@ const validador = {
 		if (_.isEmpty(key)) throw [500, objError('key', 'falta')]
 		if (_.isEmpty(str)) throw [400, objError(key, 'falta')]
 		if (typeof str !== 'string') throw [400, objError(key, 'debe ser string')]
+		if (_.includes(str, '>')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
+		if (_.includes(str, '<')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
+		if (_.includes(str, '/')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
+		if (_.includes(str, ';')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
+		if (_.includes(str, '(')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
+		if (_.includes(str, ')')) throw [400, objError(key, 'Contiene caracteres no permitidos')]
 	},
 	email(email, key = 'email') {
 		if (_.isEmpty(email)) throw [400, objError(key, 'falta')]

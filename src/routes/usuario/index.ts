@@ -14,13 +14,14 @@ const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 
 		try {
 			validador.string(nombre, 'nombre')
+			console.log('nombre validado', validador.string(nombre, 'nombre'))
 			validador.email(email, 'email')
 
 		} catch (error) {
 			const key = Object.keys(error[1])
 			const mensaje = _.get(error[1], key)
 			console.log(mensaje)
-			reply.send({ ok: 0, error: `${mensaje} ${key}` })
+			reply.send({ ok: 0, error: `${key} ${mensaje}` })
 		}
 		const projection: projection = {
 			email: 1

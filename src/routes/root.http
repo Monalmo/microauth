@@ -8,8 +8,8 @@ POST {{dominio}}/usuario
 Content-Type: application/json
 
 {
-	"nombre": "Mico",
-	"email": "mico@dud.cl"
+	"nombre": "<h1>juan</h1>",
+	"email": "micdsfso@dud.cl"
 }
 
 ### activa servicio de Beneficios
