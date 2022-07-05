@@ -5,7 +5,6 @@ import { registroBody, registroOpt } from './types'
 import { projection } from '@/db/dbTypes'
 import validador from '@lib/validador'
 import _ from 'lodash'
-import { contrasenaService } from '@/db/contrasenas'
 
 const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 	fastify.post<{ Body: registroBody }>('/', registroOpt, async function (request, reply) {
@@ -37,10 +36,8 @@ const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 				mensaje: 'El email ya existe'
 			})
 		}
-		const usuario = await usuariosService.crear(nombre, email)
+		const usuario = await usuariosService.crear(nombre, email, pass)
 		console.log('usuarioEncontrado: ', usuario)
-
-		if (usuario._id) await contrasenaService.crear(pass, usuario._id)
 
 		return reply.send({ ok: 1, mensaje: 'Usuario creado exitosamente' })
 	})

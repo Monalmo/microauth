@@ -9,10 +9,10 @@ Content-Type: application/json
 
 {
 	"nombre": "Juan",
-	"email": "micdsfsfo@dud.cl",
+	"email": "micdsddfsfo@dud.cl",
 	"pass": "123456"
 }
-
+ 
 ### activa servicio de Beneficios
 POST {{dominio}}/beneficios/activar
 Content-Type: application/json
