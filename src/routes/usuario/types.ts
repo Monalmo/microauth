@@ -2,10 +2,10 @@ import { Type, Static } from '@sinclair/typebox'
 
 import { RouteShorthandOptions } from 'fastify'
 
-
 const registroRequest = Type.Object({
 	nombre: Type.String(),
-	email: Type.String()
+	email: Type.String(),
+	pass: Type.String()
 })
 
 const registroResponse = Type.Object({
@@ -24,4 +24,3 @@ export const registroOpt: RouteShorthandOptions = {
 }
 
 export type registroBody = Static<typeof registroRequest>
-
