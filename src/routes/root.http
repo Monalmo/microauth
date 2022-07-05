@@ -13,12 +13,14 @@ Content-Type: application/json
 	"pass": "123456"
 }
  
-### activa servicio de Beneficios
-POST {{dominio}}/beneficios/activar
+### Guarda credenciales para correo en bbdd
+POST {{dominio}}/correos/credenciales
 Content-Type: application/json
 
 {
-	"activar": true
+	"SMTPUsername": "dfdfdf",
+	"SMTPPassword": "12345",
+	"dominio": "12345"
 }
 
 
