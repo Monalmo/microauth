@@ -1,6 +1,7 @@
 export type credencialesCorreo = {
 	smtpUsername?: string
 	smtpPassword?: string
+	dominio?: string
 }
 
 interface attachments {

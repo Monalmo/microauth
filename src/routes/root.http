@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
 	"nombre": "Juan",
-	"email": "micdsddfsfo@dud.cl",
+	"email": "micdhjvscccddfsfo@dudi.cl",
 	"pass": "123456"
 }
  
@@ -18,9 +18,9 @@ POST {{dominio}}/correos/credenciales
 Content-Type: application/json
 
 {
-	"SMTPUsername": "dfdfdf",
-	"SMTPPassword": "12345",
-	"dominio": "12345"
+	"SMTPUsername": "string",
+	"SMTPPassword": "string",
+	"dominio": "xxxx.cl"
 }
 
 

@@ -8,12 +8,13 @@ const port = 587
 // const dev = process.env.MODO === 'dev'
 // const cris = process.env.MODO === 'cris'
 // const test = process.env.MODO === 'test'
-const senderAddress = 'Dudi microauth service <noresponder@dudi.cl>'
+// const senderAddress = 'Dudi microauth service <noresponder@dudi.cl>'
 
 export async function enviar(
 	objetoCorreo: objetoCorreoInterface,
 	smtpUsername: string,
 	smtpPassword: string,
+	senderAddress: string,
 	preSender?: string
 ) {
 	console.log('enviar', { smtpUsername, smtpPassword, preSender })
@@ -32,7 +33,7 @@ export async function enviar(
 			}
 		})
 		const mailOptions = {
-			from: `${preSender}-${senderAddress}`,
+			from: `${preSender}-noResponder@${senderAddress}`,
 			to: email,
 			subject: subject,
 			html: body,

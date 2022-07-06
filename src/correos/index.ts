@@ -19,10 +19,11 @@ correoIniciado = undefined
 
 async function init(): Promise<boolean> {
 	console.log('iniciando correo')
-	const db = await DB('correos')
-	const obtenidas = await db.collection('credenciales').findOne({ _id: 'correos' })
+	const db = await DB('correos-config')
+	const obtenidas = await db.collection('credenciales').findOne({ _id: 'correo' })
 	credenciales.smtpUsername = obtenidas.SMTPUsername
 	credenciales.smtpPassword = obtenidas.SMTPPassword
+	credenciales.dominio = obtenidas.dominio
 	correoIniciado = true
 	return true
 }
@@ -37,7 +38,7 @@ async function enviarCorreos(nuevo) {
 		const correo = enFila.shift()
 		const smtpUsername = credenciales.smtpUsername
 		const smtpPassword = credenciales.smtpPassword
-		const enviado = await enviar(correo, smtpUsername, smtpPassword)
+		const enviado = await enviar(correo, smtpUsername, smtpPassword, credenciales.dominio)
 		if (enviado && enviado.ok) {
 			const db = await DB('eperk-correos')
 			await db
