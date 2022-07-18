@@ -3,16 +3,29 @@
 @token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dJRCI6IjYxY2QzMTc4NDkzMzFlMGFlYWVjOTYyZSIsInVzZXJJRCI6IjYxZGNiOTQ4ODQ5NmJiZjQxODU0MDkxYiIsImlzQWRtaW5FcGVyayI6dHJ1ZSwiZW1haWwiOiJjcmlzdGlhbi5oYWRhZC5nQGdtYWlsLmNvbSIsImV4cCI6MTY0ODE4MTM4MywiaWF0IjoxNjQ4MTc3NzgzfQ.W9G3PkClKEIKG7aKAXiNOI0RcWlA9LpFAE9_vXx__HQEcA5VSpJ0Tf5_e5N2gDOKvKFrWErMqYYUp1VUiVzi9selSjw23L6bEZbRcFAUSOusmB5Zwxjp053KzpUjL6DPmPkwh0hw3Qev6gxlRtidZZcxpHwI-P8T5_A6qYIg4j8
 
 
-### obtiene usuarios
+### Crea un nuevo usuario
 POST {{dominio}}/usuario
 Content-Type: application/json
 
 {
-	"nombre": "Juan",
-	"email": "micdhjvscccddfsfo@dudi.cl",
+	"nombre": "Juanito",
+	"email": "Juanito2@dudi.cl",
 	"pass": "123456"
 }
  
+
+### Cofirma usuario con codigo enviado al correo
+POST {{dominio}}/usuario/confirmacionCorreo/conCodigo
+Content-Type: application/json
+
+{
+	"codigo": "7711",
+	"email": "Juanito2@dudi.cl"
+}
+
+
+
+
 ### Guarda credenciales para correo en bbdd
 POST {{dominio}}/correos/credenciales
 Content-Type: application/json
@@ -22,11 +35,3 @@ Content-Type: application/json
 	"SMTPPassword": "string",
 	"dominio": "xxxx.cl"
 }
-
-
-
-### obtiene comprobantes
-POST {{dominio}}/comprobantes
-Content-Type: application/json 
-
-

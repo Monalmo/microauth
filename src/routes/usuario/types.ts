@@ -24,3 +24,27 @@ export const registroOpt: RouteShorthandOptions = {
 }
 
 export type registroBody = Static<typeof registroRequest>
+
+
+
+const confirmacionCorreoConCodBody = Type.Object({
+	codigo: Type.String(),
+	email: Type.String()
+})
+
+const confirmacionCorreoResponse = Type.Object({
+	ok: Type.Boolean(),
+	mensaje: Type.Optional(Type.String()),
+	error: Type.Optional(Type.String())
+})
+
+export const confirmacionCorreoOpt: RouteShorthandOptions = {
+	schema: {
+		body: confirmacionCorreoConCodBody,
+		response: {
+			200: confirmacionCorreoResponse
+		}
+	}
+}
+
+export type confirmacionConCodigoBody = Static<typeof confirmacionCorreoConCodBody>
