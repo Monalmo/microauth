@@ -5,7 +5,7 @@ import { RouteShorthandOptions } from 'fastify'
 const registroCorreo = Type.Object({
 	SMTPUsername: Type.String(),
 	SMTPPassword: Type.String(),
-	dominio: Type.String(),
+	dominio: Type.String()
 })
 
 const registroResponse = Type.Object({

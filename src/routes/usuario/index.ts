@@ -41,32 +41,38 @@ const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 		return reply.send({ ok: 1, mensaje: 'Usuario creado exitosamente, debe confirmar su correo electronico' })
 	})
 
-	
-	fastify.post<{ Body: confirmacionConCodigoBody }>('/confirmacionCorreo/conCodigo', confirmacionCorreoOpt, async function (request, reply) {
-		const email = request.body.email
-		const codigo = request.body.codigo
+	// confirma contraseña creada por el usuario con el codigo enviado al correo
+	fastify.post<{ Body: confirmacionConCodigoBody }>(
+		'/confirmacionCorreo/conCodigo',
+		confirmacionCorreoOpt,
+		async function (request, reply) {
+			const email = request.body.email
+			const codigo = request.body.codigo
 
-		try {
-			validador.email(email, 'email')
-			validador.string(codigo, 'codigo')
-		} catch (error) {
-			const key = Object.keys(error[1])
-			const mensaje = _.get(error[1], key)
-			console.log(mensaje)
-			return reply.send({ ok: 0, error: `${key} ${mensaje}` })
-		}
-
-		try {
-			const codigoValidado = await usuariosService.validarCodigoConfirmacion(email, codigo)
-			if (codigoValidado !== 'validado') { 
-				const errorMessage = `Error: ${codigoValidado.intentosFallidos} intentos fallidos`
-				return reply.send({ ok: 0, error: errorMessage}) 
+			// validaciones de entrada
+			try {
+				validador.email(email, 'email')
+				validador.string(codigo, 'codigo')
+			} catch (error) {
+				const key = Object.keys(error[1])
+				const mensaje = _.get(error[1], key)
+				console.log(mensaje)
+				return reply.send({ ok: 0, error: `${key} ${mensaje}` })
 			}
-			return reply.send({ ok: 1, mensaje: codigoValidado })
-		} catch (error) {
-			return reply.send({ ok: 0, error: error })
+
+			// validaciones del codgigo de confirmacion
+			try {
+				const codigoValidado = await usuariosService.validarCodigoConfirmacion(email, codigo)
+				if (codigoValidado !== 'validado') {
+					const errorMessage = `Error: ${codigoValidado.intentosFallidos} intentos fallidos`
+					return reply.send({ ok: 0, error: errorMessage })
+				}
+				return reply.send({ ok: 1, mensaje: codigoValidado })
+			} catch (error) {
+				return reply.send({ ok: 0, error: error })
+			}
 		}
-	})
+	)
 }
 
 export default usuario

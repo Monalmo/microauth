@@ -59,7 +59,7 @@ const usuariosService = {
 		return usuario
 	},
 
-	async validarCodigoConfirmacion (email: string, codigo: string): Promise<'validado' | { intentosFallidos: number }> {
+	async validarCodigoConfirmacion(email: string, codigo: string): Promise<'validado' | { intentosFallidos: number }> {
 		const projection = {
 			_id: 1,
 			cambioContrasena: 1,
@@ -74,13 +74,15 @@ const usuariosService = {
 		const codigoEnviado = usuario.cambioContrasena?.codigoConfirmacion
 		const codigoValidado = await bcrypt.compare(codigo, codigoEnviado)
 
-		if (!codigoValidado && (intentosFallidos === 2)) {
+		if (!codigoValidado && intentosFallidos === 2) {
 			await db.collection<usuarioLogin>('usuarios').findOneAndUpdate({ email }, { $set: { cambioContrasena: null } })
 			throw 'Se ha equivocado 3 veces, se eliminó la contraseña'
 		}
 
 		if (!codigoValidado) {
-			await db.collection<usuarioLogin>('usuarios').findOneAndUpdate({ _id: usuario._id }, { $inc: { 'cambioContrasena.intentosFallidos': 1 } })
+			await db
+				.collection<usuarioLogin>('usuarios')
+				.findOneAndUpdate({ _id: usuario._id }, { $inc: { 'cambioContrasena.intentosFallidos': 1 } })
 			return {
 				intentosFallidos: intentosFallidos + 1
 			}
@@ -92,9 +94,7 @@ const usuariosService = {
 
 		await db.collection<usuarioLogin>('usuarios').findOneAndUpdate({ _id: usuario._id }, { $set: elSet })
 		return 'validado'
-
 	}
-	
 }
 
 export default usuariosService

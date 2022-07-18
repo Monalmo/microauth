@@ -25,7 +25,6 @@ const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 
 		await guardarCredencialesCorreo(SMTPUsername, SMTPPassword, dominio)
 
-
 		return reply.send({ ok: 1, mensaje: 'Credenciales SMTP guardadas' })
 	})
 }

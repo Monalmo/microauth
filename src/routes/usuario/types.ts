@@ -25,8 +25,6 @@ export const registroOpt: RouteShorthandOptions = {
 
 export type registroBody = Static<typeof registroRequest>
 
-
-
 const confirmacionCorreoConCodBody = Type.Object({
 	codigo: Type.String(),
 	email: Type.String()
