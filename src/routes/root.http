@@ -24,6 +24,15 @@ Content-Type: application/json
 }
 
 
+### login con email y pass
+POST {{dominio}}/login
+Content-Type: application/json
+
+{
+	"email": "Juanito2@dudi.cl",
+	"pass": "123456"
+}
+
 
 
 ### Guarda credenciales para correo en bbdd

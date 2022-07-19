@@ -7,6 +7,7 @@ import validador from '@lib/validador'
 import _ from 'lodash'
 
 const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
+	// creacion de nuevo usuario, para acceder debe validar su correo
 	fastify.post<{ Body: registroBody }>('/', registroOpt, async function (request, reply) {
 		console.log('body: ', request.body)
 
@@ -41,6 +42,7 @@ const usuario: FastifyPluginAsync = async (fastify): Promise<void> => {
 		return reply.send({ ok: 1, mensaje: 'Usuario creado exitosamente, debe confirmar su correo electronico' })
 	})
 
+	
 	// confirma contraseña creada por el usuario con el codigo enviado al correo
 	fastify.post<{ Body: confirmacionConCodigoBody }>(
 		'/confirmacionCorreo/conCodigo',

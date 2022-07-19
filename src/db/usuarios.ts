@@ -15,7 +15,7 @@ export interface cambioContrasena {
 
 export type usuarioLogin = {
 	_id?: ObjectId
-	contrasena?: string
+	pass?: string
 	cambioContrasena?: cambioContrasena
 	nombre: string
 	email: string
