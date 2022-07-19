@@ -32,7 +32,7 @@ const validador = {
 		if (_.isEmpty(key)) throw [500, objError('key', 'falta')]
 		if (_.isEmpty(str)) throw [400, objError(key, 'falta')]
 		if (typeof str !== 'string') throw [400, objError(key, 'debe ser string')]
-		if (/[<>;()/]/g.test(str)) throw [400, objError(key, `constiene Carateres no permitidos: ${_.join(str.match(/[<>;()/]/g), ' , ')}`)]
+		if (/[<>;()/]/g.test(str)) throw [400, objError(key, `contiene Carateres no permitidos: ${_.join(str.match(/[<>;()/]/g), ' , ')}`)]
 	},
 	contrasena(str, key) {
 		if (_.isEmpty(key)) throw [500, objError('key', 'falta')]
