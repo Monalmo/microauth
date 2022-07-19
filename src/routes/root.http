@@ -8,7 +8,7 @@ POST {{dominio}}/usuario
 Content-Type: application/json
 
 {
-	"nombre": "J()uanito",
+	"nombre": "<h1>Jua();nito</h1>",
 	"email": "Juanito2@dudi.cl",
 	"pass": "123456"
 }
