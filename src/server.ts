@@ -8,6 +8,9 @@ import fastifyXmlBodyParser from 'fastify-xml-body-parser'
 // import fastifyRoutes from 'fastify-routes'
 import pino from 'pino'
 import appService from './app'
+import _ from 'lodash'
+import { verificarToken } from './auth/ingreso'
+import { reqDecorado } from '@lib/types'
 
 const start = async () => {
 	const server = fastify({
@@ -54,11 +57,32 @@ const start = async () => {
 			return done()
 		})
 
-		server.addHook('preValidation', function (request, reply, done) {
-			console.log(chalk.blue('Body'), request.body)
+		server.addHook('preValidation', async function (request: reqDecorado, reply) {
+			console.log(chalk.blue('preValidation - Body'), request.body)
 
-			// console.log(request);
-			return done()
+			const ruta = request.url
+			const rutasLibres = ['/login']
+
+			if (!_.isEmpty(_.filter(rutasLibres, r => {
+				if (r === ruta) return r
+			}))) {
+				console.log(`Ruta ${ruta} sin validacion de token`)
+
+				return
+			}
+			console.log(`Ruta ${ruta} con validacion de token`)
+			const token = request.headers.authorization
+			console.log('header', token)
+
+			const tokenValidado = await verificarToken(token)
+			console.log('tokenValidado', tokenValidado)
+
+			if (!tokenValidado) {
+				return reply.send({ ok: 0, error: 'Token invalido' })
+			}
+			request.email = tokenValidado.email
+
+			return
 		})
 
 		server.register(appService)

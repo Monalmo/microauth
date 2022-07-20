@@ -1,6 +1,17 @@
 
 @dominio = http://localhost:3080
-@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dJRCI6IjYxY2QzMTc4NDkzMzFlMGFlYWVjOTYyZSIsInVzZXJJRCI6IjYxZGNiOTQ4ODQ5NmJiZjQxODU0MDkxYiIsImlzQWRtaW5FcGVyayI6dHJ1ZSwiZW1haWwiOiJjcmlzdGlhbi5oYWRhZC5nQGdtYWlsLmNvbSIsImV4cCI6MTY0ODE4MTM4MywiaWF0IjoxNjQ4MTc3NzgzfQ.W9G3PkClKEIKG7aKAXiNOI0RcWlA9LpFAE9_vXx__HQEcA5VSpJ0Tf5_e5N2gDOKvKFrWErMqYYUp1VUiVzi9selSjw23L6bEZbRcFAUSOusmB5Zwxjp053KzpUjL6DPmPkwh0hw3Qev6gxlRtidZZcxpHwI-P8T5_A6qYIg4j8
+@token = eyJhbGciOiJSUzI1NiIsImVuYyI6IkEyNTZHQ00ifQ.eyJlbWFpbCI6Ikp1YW5pdG8yQGR1ZGkuY2wiLCJpc3MiOiJwcmluY2lwYWwiLCJpYXQiOjE2NTgyNDg2Mzd9.P6aNaIPni7wkweVbWAVTd1_ERFigCqXp9-lDejuKbukd6CJr0Gpq7vXVxsTVYtsNASJxb7XQAsFCfXew9D5Gp97KUJlLCYCgEvE8irppdQuZAvGnSn1xsNJxXK91Kh6JslCeRdYUp-buTreZ8Ec8eZaQ8kM7Ep6reFVf_a-zjabE3fL2B3AqXGwP8lOG-rcXUmrOOPhpFnqT4YTFcwbYsxcyTcNzUjOtW00qGPgMlEfxx4BGX2qOVgzrfp_77myVtaGby5dkh9x-81_K1oEVqv8x3k7cD3p2YeQfE7NzEmwJ1iu1HwmPULxNNWK2Vzou7ruj93-_x2A9rI6116TDZg
+
+
+### login con email y pass
+POST {{dominio}}/login
+Content-Type: application/json
+
+{
+	"email": "Juanito2@dudi.cl",
+	"pass": "123456"
+}
+
 
 
 ### Crea un nuevo usuario
@@ -17,21 +28,25 @@ Content-Type: application/json
 ### Cofirma usuario con codigo enviado al correo
 POST {{dominio}}/usuario/confirmacionCorreo/conCodigo
 Content-Type: application/json
+Authorization: Bearer {{token}} 
 
 {
 	"codigo": "7711",
 	"email": "Juanito2@dudi.cl"
 }
 
-
-### login con email y pass
-POST {{dominio}}/login
+@usuarioID = 980798797
+### Asigna una web a un usuario
+POST {{dominio}}/usuario/980798797/web
 Content-Type: application/json
+Authorization: Bearer {{token}} 
 
 {
-	"email": "Juanito2@dudi.cl",
-	"pass": "123456"
+	"web": "gob",
+	"tipoAcceso": "administrador"
 }
+
+
 
 
 
